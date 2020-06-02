@@ -4,11 +4,11 @@ Wait, what is FizzBuzz you ask?  It's simple:
 
 ### Fizzbuzz rules:
 Output, from 1 to 100 (configurable via command line): 
-
-if x divisible by 15: Fizzbuzz
-else if x divisible by 5: Buzz
-else if x divisible by 3: Fizz
-else: output X
+<br>
+<br>if x divisible by 15: Fizzbuzz
+<br>else if x divisible by 5: Buzz
+<br>else if x divisible by 3: Fizz
+<br>else: output X
 
 The purpose is to spur critical thought and to try to resolve a problem with simple rules in
 the most efficient manner.  I came across this interesting challenge thanks to Tom Scott's
@@ -18,26 +18,26 @@ Youtube video:
 
 ## Command Line Syntax
 You can execute the script (Python 3.7+) from any command line with:
-`Python FizzBuzz.py`
+<br>`Python FizzBuzz.py`
 
 This will run it in verbose mode for a range of 1-100, for each algorithm and then compare
 and rank their times.
 
 The value of 100 is in line with Tom's video, but this can be changed (see below).
 Note if running under Linux, you can issue:
-`chmod 644 FizzBuzz.py`
+<br>`chmod 644 FizzBuzz.py`
 and then execute it directly as:
-`./FizzBuzz.py`
+<br>`./FizzBuzz.py`
 
 To get a list of the possible command line arguments, use **--help**
 
 To run an exhaustive test with range 1..100,000, without results cluttering
 the output, use:
-`Python FizzBuzz.py -m 100000 -v false` OR
-`Python FizzBuzz.py --max=100000 --verbose=false`
+<br>`Python FizzBuzz.py -m 100000 -v false` OR
+<br>`Python FizzBuzz.py --max=100000 --verbose=false`
 
 You can test just a single algorithm with **--algo** or **-a**
-`Python FizzBuzz.py -m 150000 -a Racers -v false`
+<br>`Python FizzBuzz.py -m 150000 -a Racers -v false`
 
 Please note that the Recursive algorithm has a maximum recursion limit after which it will not run and will return a bogus high-time to go 
 to the bottom of the rankings.
@@ -75,8 +75,8 @@ threading model that is easily accessed.
 
 Which is fastest?  It depends on the iterations.
 Try running with 1,000,000:
-`Pyton FizzBuzz.py -m 1000000 -v false` 
-(be sure to set `-v false`) and you'll get a fair distribution of results.
+<br>`Pyton FizzBuzz.py -m 1000000 -v false` 
+<br>(be sure to set `-v false`) and you'll get a fair distribution of results.
 
 ## Extending the Algorithms
 The sky is the limit!  Why not try your own approach and see how it stacks up against the stock ones?  Extending `FizzBuzz.py` is simple:

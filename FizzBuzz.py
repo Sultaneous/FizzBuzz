@@ -5,7 +5,9 @@
 # for laying down the gauntlet and issuing the challenge.
 #
 # 200425 Karim Sultan - Created this module
-# This module shows off Python 3.7's powerful OOP capabilities.
+#        This module shows off Python 3.7's powerful OOP capabilities.
+# 200531 Karim Sultan - Added in the command line options
+# 200603 Karim Sultan - Improved memory usage to help run 'very big' tests
 #
 # Fizzbuzz rules:
 # Output, from 1 to 100 (configurable via command line):
@@ -14,7 +16,7 @@
 # else if x divisible by 3: Fizz
 # else: X
 #
-# This module explores a colletion of algorithmic approaches, times them,
+# This module explores a collection of algorithmic approaches, times them,
 # and ranks them.
 # To increase the Fizzbuzz range from the default 100, alter "MAX_NUMBERS" global,
 # or pass in a number on the command line:
@@ -31,6 +33,7 @@
 from time import perf_counter
 import sys
 import getopt
+import locale
 
 # Global constants, can be modified by command line parameter
 MAX_NUMBERS     = 100
@@ -89,6 +92,7 @@ class FizzBuzz:
       self.Name = name
       self.results=[0]
       self.Max = MAX_NUMBERS
+      print(self.Name+" (now executing...)")
 
    # Returns the name of the class.
    # Used in automation / templating in main().
@@ -117,6 +121,7 @@ class FizzBuzz:
    # We don't time the CRT output portion.
    def report(self, dataString=""):
       self.timer.stop()
+      print ("   Completed "+f'{MAX_NUMBERS:n}'+" in "+f'{self.timer.elapsed():<.3f}'+" seconds.\n")
 
       # If we are in quiet mode, abort report and return time
       if (VERBOSE==False):
@@ -130,6 +135,9 @@ class FizzBuzz:
             print ("[{0}] {1}".format(i, self.results[i]))
       else:
          print (dataString)
+
+      # Clear the data
+      self.results.clear()
 
       # Report timing...
       return(self.timer.elapsed())
@@ -294,7 +302,7 @@ class Recursive(FizzBuzz):
    def report(self, dataString=""):
       if (MAX_NUMBERS>RECURSION_LIMIT):
          print ("Recursion limit of 10,000 exceeded for Recursive algorithm.")
-         print ("Test run aborted, and bogus high-time returned.")
+         print ("Test run aborted, and bogus high-time returned.\n")
          return(999.999999);
       else:
          super().report("")
@@ -573,7 +581,7 @@ def parseCommandLine():
 def displayTimings(timings):
    # Print ranked timings
    print()
-   print ("Ranked Timings:")
+   print ("Ranked Timings: ("+f'{MAX_NUMBERS:n}'+ " range)")
    i=0
    for (k,v) in sorted(timings.items(), key=lambda kv:(kv[1],kv[0])):
       i+=1
@@ -582,6 +590,9 @@ def displayTimings(timings):
 
 
 def main():
+   # Immediately set locale using auto; this ensures proper numeric output.
+   locale.setlocale(locale.LC_ALL, '')
+
    # Variables
    algos = ["FizzBuzz",
             "Sieve",    "Minefield",   "Dictionary",
@@ -598,7 +609,7 @@ def main():
         print ("Valid choices are:",algos)
         exit(0)
 
-   print("Using a maximum number range of:", MAX_NUMBERS)
+   print("Using a maximum number range of: "+f'{MAX_NUMBERS:n}')
 
    # Use a cool trick to load class by name from list
    # Execute fizzbuzz, report, and track time taken.

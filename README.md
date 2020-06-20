@@ -43,8 +43,8 @@ Please note that the Recursive algorithm has a maximum recursion limit after whi
 to the bottom of the rankings.
 
 ## Code Structure
-Ok, so I'm watching Tom's video, and my mind starts racing with different approaches.  But I
-wanted it to be elegant, not just a bunch of repeated code in a massive file.  Fortunately,
+Ok, so I'm watching Tom's video, and it invites so many different approaches.  To construct it 
+well, we need elegance, not just a bunch of repeated code in a massive file.  Fortunately,
 Python now has some great object oriented features, and they are leveraged here.
 
 There is a base class `FizzBuzz` which implements the standard, basic algorithm.  It provides core code 
@@ -58,25 +58,26 @@ represents, and the algorithm is executed.  This makes adding new algorithms a p
 approach (and also allows for specifying a specific algorithm from the command line.
 
 ## Algorithms
-There are 10 that I implemented:
-1. **FizzBuzz** (default / base class)
+There are 10 that were implemented, by no means exhaustive:
+1. **FizzBuzz** (default / base class, using modulus)
 2. **Sieve**  (modeled after the famous Sieve of Eratosthenes for primes)
 3. **Minefield** (A character search and replace)
 4. **Dictionary**
 5. **Lambda** (Uses nested Lambda expressions / similar to inline macros)
 6. **Recursion** (Limited by Python's recursion limit)
-7.  **Nested** (An anti-recursion approach)
-8. **Unrolled** (An old-school approach to loop  optimization)
+7. **Nested** (An anti-recursion approach)
+8. **Unrolled** (An old-school approach to loop optimization)
 9. **Pattern** (FizzBuzz has a repeating pattern every 15 numbers)
 10.**Racers** (my favourite; two "cars" racing on a number line)
 
-I did not implement any *threaded* approaches, as Python does not offer a true multi-core
+No *threaded* approaches were implemented, as Python does not offer a true multi-core
 threading model that is easily accessed.
 
 Which is fastest?  It depends on the iterations.
 Try running with 1,000,000:
 <br>`Pyton FizzBuzz.py -m 1000000 -v false` 
 <br>(be sure to set `-v false`) and you'll get a fair distribution of results.
+<br>There is a png of a test of 1,000,000,000 (billion) in the source directory.
 
 ## Extending the Algorithms
 The sky is the limit!  Why not try your own approach and see how it stacks up against the stock ones?  Extending `FizzBuzz.py` is simple:

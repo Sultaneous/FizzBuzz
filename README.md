@@ -68,7 +68,7 @@ There are 10 that were implemented, by no means exhaustive:
 7. **Nested** (An anti-recursion approach)
 8. **Unrolled** (An old-school approach to loop optimization)
 9. **Pattern** (FizzBuzz has a repeating pattern every 15 numbers)
-10.**Racers** (my favourite; two "cars" racing on a number line)
+10. **Racers** (my favourite; two "cars" racing on a number line)
 
 No *threaded* approaches were implemented, as Python does not offer a true multi-core
 threading model that is easily accessed.

@@ -86,7 +86,7 @@ class FizzBuzz:
 
    # The base constructor should be calle be all derived classes.
    # IE, "super().__init__("Name of Algorithm")
-   def __init__(self, name="Approach 0. Basic - FizzBuzz"):
+   def __init__(self, name="Approach 0: Basic - FizzBuzz"):
       # Start performance timer
       self.timer.start()
       self.Name = name
@@ -574,8 +574,6 @@ def parseCommandLine():
          global ALGO_REQUESTED
          arg=arg.capitalize()
          ALGO_REQUESTED=arg
-
-
 
 
 def displayTimings(timings):
